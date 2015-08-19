@@ -9,7 +9,8 @@ $ShearPhoto["config"]=array(
              //array(0,true),//此时的0   代表以用户取当时截取框的所截的大小为宽
              array(150,true),//@参数1要生成的宽 （高度不用设，系统会按比例做事），    @参数2：是否为该图加水印,water参数要有水印地址才有效true或false
              array(100,true),//@参数1要生成的宽 （高度不用设，系统会按比例做事），   @参数2：是否为该图加水印，water参数要有水印地址才有效true或false
-			 array(70,true)),//你可以继续增加多张照片
+			 array(70,true)
+			 ),//你可以继续增加多张照片
 "water"=>"../images/waterimg2.png",//只接受PNG水印，当然你对PHP熟练，你可以对主程序进行修改		   
 "water_scope"=>100,       //图片少于多少不添加水印！没填水印地址，这里不起任何作用
 "temp"=>ShearURL."file".DIRECTORY_SEPARATOR."temp",  //等待截图的大图文件。就是上传图片的临时目录，截图后，图片会被删除
