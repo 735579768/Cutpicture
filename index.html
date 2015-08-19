@@ -6,12 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=8,9,10">
 <title>shearphoto1.3 头像截取工具,JS截图 切图插件，在线拍照截图</title>
 <link href="css/ShearPhoto.css" rel="stylesheet" type="text/css" media="all">
-<script  type="text/javascript" src="js/ShearPhoto.js" ></script><!--拉伸，截图的核心文件-->
-<script  type="text/javascript"  src="js/move.js" ></script><!--拖拽DIV JS文件 -->
-<script  type="text/javascript"  src="js/processdata.js" ></script><!--与服务器交互数据JS文件 -->
-<script  type="text/javascript"  src="js/UpImg.js" ></script>     <!--上传截图的JS文件 -->
-<script  type="text/javascript"  src="js/webcam_ShearPhoto.js" ></script>   <!--在线拍照 -->
-<script  type="text/javascript"  src="js/handle.js" ></script>    <!--设置和处理对象方法的文件，要修改设置，请进入这个文件 -->
+
 </head>
 <body>
 <!--主功能部份-->
@@ -113,5 +108,22 @@
 <div id="timing">3</div>
 </div>
 <!--拍照-->
+<script>
+var Cutpicture={
+	bili:3/4,
+	chuliurl:"php/shearphoto.php",//后端处理地址
+	uploadurl:"php/upload.php",
+	complete2:function(data){
+	console.log(data);
+	}
+	};
+</script>
+
+<script  type="text/javascript" src="js/ShearPhoto.js" ></script><!--拉伸，截图的核心文件-->
+<script  type="text/javascript"  src="js/move.js" ></script><!--拖拽DIV JS文件 -->
+<script  type="text/javascript"  src="js/processdata.js" ></script><!--与服务器交互数据JS文件 -->
+<script  type="text/javascript"  src="js/UpImg.js" ></script>     <!--上传截图的JS文件 -->
+<script  type="text/javascript"  src="js/webcam_ShearPhoto.js" ></script>   <!--在线拍照 -->
+<script  type="text/javascript"  src="js/handle.js" ></script>    <!--设置和处理对象方法的文件，要修改设置，请进入这个文件 -->
 </body>
 </html>

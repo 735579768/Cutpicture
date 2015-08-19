@@ -4,11 +4,11 @@ ShearPhoto.MINGGE(function() {
 	   var Shear = new ShearPhoto;
           Shear.config({
 			     	/*---------------用户设置部份开始-----------------------------------------------------------------------*/  
-			        url:"php/shearphoto.php",//后端处理地址
+			        url:Cutpicture.chuliurl,//后端处理地址
 			        scopeWidth:500,                 //可拖动范围宽  也就是"main"对象的初始大小  
                     scopeHeight:500,                //可拖动范围高  也就是"main"对象的初始大小  
                     relat:publicRelat,                //请查看 id:"relat"对象 
-                    proportional:[3/4,               //截框的宽高比例（宽除以高的比例值，这个设置其实就是3/4,不设比例请设为0，注意更改比例后，后端也要进行相应设置，否则系统会给你抱出错误）
+                    proportional:[Cutpicture.bili,               //截框的宽高比例（宽除以高的比例值，这个设置其实就是3/4,不设比例请设为0，注意更改比例后，后端也要进行相应设置，否则系统会给你抱出错误）
 					 100,                             //启动后的截框初始宽度
 					 133.33333                        //比例设置后，这个高度无效，由宽和比例来决定
 					  ],   
@@ -40,9 +40,7 @@ ShearPhoto.MINGGE(function() {
                     UpFun:function() {                   //鼠标健松开时执行函数
                               Shear.MoveDiv.DivWHFun();   //把截框现时的宽高告诉JS    
                     },
-					complete2:function(data){
-						console.log(data);
-						}
+					complete2:Cutpicture.complete2
                     
           });
 var photoalbum = document.getElementById("photoalbum");//相册对象
@@ -50,7 +48,7 @@ var photoalbum = document.getElementById("photoalbum");//相册对象
 var up = new ShearPhoto.frameUpImg({
           UpType:new Array("jpg", "jpeg", "png", "gif"),//图片类限制，上传的一定是图片，你就不要更改了
           FilesSize:2,
-          url:"php/upload.php",
+          url:Cutpicture.uploadurl,
           erro:function(msg) {
                     Shear.pointhandle(3e3, 10, msg, 0, "#f82373", "#fff");
           },
@@ -95,7 +93,7 @@ PhotoLoading.onclick = function() {             //从相册选取事件
  /*相册*/
  /*截图，左旋，右旋，重新选择*/
   Shear.addEvent(document.getElementById("saveShear"), "click", function() { //按下截图事件，提交到后端的shearphoto.php接收
-   Shear.SendPHP({shearphoto:"我要传参数到服端",mingge:"我要传第二个参数到服务器"});//我们示例截图并且传参数，后端文件shearphoto.php用 示例：$_POST["shearphoto"] 接收参数，不需要传参数请清空Shear.SendPHP里面的参数示例 Shear.SendPHP();
+   Shear.SendPHP({shearphoto:Cutpicture.bili,mingge:"我要传第二个参数到服务器"});//我们示例截图并且传参数，后端文件shearphoto.php用 示例：$_POST["shearphoto"] 接收参数，不需要传参数请清空Shear.SendPHP里面的参数示例 Shear.SendPHP();
 });
 
  Shear.addEvent(document.getElementById("LeftRotate"), "click", function() {//向左旋转事件
@@ -121,7 +119,7 @@ PhotoLoading.onclick = function() {             //从相册选取事件
 		uploadfield : "UpFile",       //上传的FORMDATA名称， 不理解你就不要改，否则报错又问为什么了
 		postargs:{mingge:"shearphoto我爱你",shearphoto:"shearphoto好"}//示例传入POST参数到后端。后端示例$_POST['XXXX'] 接收！如果！ 不需要传参数，请把postargs删除，需填参数请保证参数格式
 	 },
-                     webcam.set_api_url("php/upload.php"); //拍照连接后端的URL文件    
+                     webcam.set_api_url(Cutpicture.uploadurl); //拍照连接后端的URL文件    
                      webcam.set_quality(95);//拍照的图片质量
                      webcam.set_shutter_sound(true);//拍照声音
 					 
