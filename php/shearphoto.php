@@ -60,7 +60,7 @@ $ShearPhoto["JSdate"]=isset($_POST["JSdate"])?json_decode(trim(stripslashes($_PO
                 }
             }
         } //验证是否为字除了url
-        if ($PHPconfig["proportional"] !== $JSconfig["P"]) {
+        if ($PHPconfig["proportional"] !== floatval($JSconfig["P"])) {
             $this->erro = "JS设置的比例和PHP设置不一致";
             return false;
         }

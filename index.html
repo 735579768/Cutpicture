@@ -112,10 +112,15 @@
 <!--拍照-->
 <script>
 var Cutpicture={
-	bili:3/4,
+	bili:1,
 	chuliurl:"php/shearphoto.php",//后端处理地址
 	uploadurl:"php/upload.php",
 	complete2:function(data){
+		//截图成功后返回来的json值
+/*		document.getElementById("completeA").onclick=function(){
+			//绑定截图完成后的操作
+			
+			};*/
 	console.log(data);
 	}
 	};
